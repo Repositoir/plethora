@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace MauiApp1.ViewModel
 {
-    internal class TimerViewModel
+    [QueryProperty("PageName", "PageName")]
+    public partial class TimerViewModel: BaseViewModel
     {
+        public TimerViewModel()
+        {
+
+        }
+
     }
 }
