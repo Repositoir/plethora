@@ -10,93 +10,95 @@
         <viewmodel:MainViewModel />
     </ContentPage.BindingContext>
 
-    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="50">
+    <ScrollView HorizontalOptions="Center">
+        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="50">
 
-        <Frame 
+            <Frame 
             WidthRequest="150" 
             HeightRequest="150" 
             CornerRadius="150" 
             BackgroundColor="RoyalBlue" 
-            HorizontalOptions="Start" 
-            VerticalOptions="Start">
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer
+            HorizontalOptions="Center" 
+            VerticalOptions="Center">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer
                     Command="{Binding NavigateToPageCommand}"
-                    CommandParameter="DayPage" /> 
-            </Frame.GestureRecognizers>
-            <Label 
+                    CommandParameter="DayPage" />
+                </Frame.GestureRecognizers>
+                <Label 
                 Text="Book of the Day" 
                 HorizontalOptions="Center" 
                 VerticalOptions="Center" 
                 HorizontalTextAlignment="Center" 
                 VerticalTextAlignment="Center"
                 FontSize="24" />
-        </Frame>
+            </Frame>
 
 
-        <Frame 
+            <Frame 
             WidthRequest="150" 
             HeightRequest="150" 
             CornerRadius="150" 
             BackgroundColor="LightBlue" 
             HorizontalOptions="Center" 
             VerticalOptions="Center">
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer
                     Command="{Binding NavigateToPageCommand}"
                     CommandParameter="TimerPage" />
-            </Frame.GestureRecognizers>
-            <Label 
+                </Frame.GestureRecognizers>
+                <Label 
                 Text="Start Reading" 
                 HorizontalOptions="Center" 
                 VerticalOptions="Center" 
                 HorizontalTextAlignment="Center" 
                 VerticalTextAlignment="Center"
                 FontSize="24" />
-        </Frame>
+            </Frame>
 
-        <Frame 
+            <Frame 
             WidthRequest="120" 
             HeightRequest="120" 
             CornerRadius="150" 
             BackgroundColor="LightGreen" 
             HorizontalOptions="End" 
             VerticalOptions="Center">
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer
                     Command="{Binding NavigateToPageCommand}"
                     CommandParameter="NotesPage" />
-            </Frame.GestureRecognizers>
-            <Label 
+                </Frame.GestureRecognizers>
+                <Label 
                 Text="Notes" 
                 HorizontalOptions="Center" 
                 VerticalOptions="Center" 
                 HorizontalTextAlignment="Center" 
                 VerticalTextAlignment="Center"
                 FontSize="24" />
-        </Frame>
+            </Frame>
 
-        <Frame 
+            <Frame 
             WidthRequest="85" 
             HeightRequest="85" 
             CornerRadius="150" 
             BackgroundColor="DarkSeaGreen" 
             HorizontalOptions="Start" 
             VerticalOptions="Start">
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer
                     Command="{Binding NavigateToPageCommand}"
                     CommandParameter="AboutPage" />
-            </Frame.GestureRecognizers>
-            <Label 
+                </Frame.GestureRecognizers>
+                <Label 
                 Text="About" 
                 HorizontalOptions="Center" 
                 VerticalOptions="Center" 
                 HorizontalTextAlignment="Center" 
                 VerticalTextAlignment="Center"
                 FontSize="15" />
-        </Frame>
+            </Frame>
 
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>
