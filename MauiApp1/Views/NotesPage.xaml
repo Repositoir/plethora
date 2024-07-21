@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MauiApp1.ViewModel"
              x:Class="MauiApp1.Views.NotesPage"
-             Title="NotesPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Title="Reflection">
+
+    <ContentPage.BindingContext>
+        <viewmodel:NotesViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label Text="Reflect on your Reading" FontSize="24" HorizontalOptions="Center" />
+
+        <Entry Placeholder="Enter a reflection" Text="{Binding NewNote}" />
+
+        <Button Text="Add Reflection" Command="{Binding AddNoteCommand}" />
+
+        <CollectionView ItemsSource="{Binding Notes}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <Label Text="{Binding .}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                        <Button Text="Delete" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:NotesViewModel}}, Path=DeleteNoteCommand}" CommandParameter="{Binding .}" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>

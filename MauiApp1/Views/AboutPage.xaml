@@ -3,11 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:MauiApp1.ViewModel"
              x:Class="MauiApp1.Views.AboutPage"
-             Title="AboutPage">
-    <VerticalStackLayout>
+             Title="About the Devs">
+    <VerticalStackLayout Padding="10" Spacing="10">
+
+        <Image Aspect="AspectFill" Source="dotnet_bot.jpg"/>
+        
         <Label 
-            Text="This is the about Page"
+            Text="Created by"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            FontAttributes="Bold"
+            FontSize="25"/>
+
+        <Label
+            Text=" - Aritra Biswas (Lead Developer)"
+            FontSize="24"/>
+
+        <Label
+            Text=" - Arnav Waghdhare (ML Engineer)"
+            FontSize="24"/>
+
+        <Label
+            Text="using .NET MAUI Version 8"
+            FontSize="18"/>
     </VerticalStackLayout>
 </ContentPage>
