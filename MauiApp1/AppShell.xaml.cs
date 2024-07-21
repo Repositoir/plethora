@@ -8,6 +8,9 @@ namespace MauiApp1
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(TimerPage), typeof(TimerPage));
+            Routing.RegisterRoute(nameof(NotesPage), typeof(NotesPage));
+            Routing.RegisterRoute(nameof(DayPage), typeof(DayPage));
+            Routing.RegisterRoute(nameof(AboutPage), typeof(AboutPage));
         }
     }
 }

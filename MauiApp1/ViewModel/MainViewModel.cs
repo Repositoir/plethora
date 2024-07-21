@@ -10,6 +10,7 @@ namespace MauiApp1.ViewModel
         public MainViewModel()
         {
             NavigateToPageCommand = new AsyncRelayCommand<string>(NavigateToPage);
+            // NavigateToNotes = new AsyncRelayCommand<string>(NavigateToPage);
         }
 
         public IAsyncRelayCommand<string> NavigateToPageCommand { get; }
@@ -19,6 +20,21 @@ namespace MauiApp1.ViewModel
             if (pageName == "TimerPage")
             {
                 await Shell.Current.GoToAsync(nameof(TimerPage));
+            }
+
+            else if (pageName == "NotesPage")
+            {
+                await Shell.Current.GoToAsync(nameof(NotesPage));
+            }
+
+            else if (pageName == "DayPage")
+            {
+                await Shell.Current.GoToAsync(nameof(DayPage));
+            }
+
+            else if (pageName == "AboutPage")
+            {
+                await Shell.Current.GoToAsync(nameof(AboutPage));
             }
         }
     }

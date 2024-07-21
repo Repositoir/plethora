@@ -1,34 +1,44 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:MauiApp1.ViewModel"
              x:Class="MauiApp1.Views.TimerPage"
-             Title="TimerPage">
+             Title="Reading Goal">
 
     <ContentPage.BindingContext>
         <viewmodel:TimerViewModel />
     </ContentPage.BindingContext>
 
-    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="20">
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Start" Spacing="20">
         <Label 
             Text="{Binding RemainingTime}"
-            FontSize="48"
+            FontSize="80"
             HorizontalOptions="Center"
-            VerticalOptions="Center"
+            VerticalOptions="Start"
             x:Name="timerLabel"/>
 
         <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="20">
             <Button
                 Text="Start"
-                Command="{Binding StartCommand}"/>
+                Command="{Binding StartCommand}"
+                BackgroundColor="Green"
+                FontSize="20"/>
             <Button
                 Text="Stop"
-                Command="{Binding StopCommand}"/>
+                Command="{Binding StopCommand}"
+                BackgroundColor="Red"
+                FontSize="20"/>
             <Button
                 Text="Reset"
-                Command="{Binding ResetCommand}"/>
+                Command="{Binding ResetCommand}"
+                FontSize="20"/>
         </HorizontalStackLayout>
+
+        <Label Text="Reading Challenge!" FontSize="30"/>
+
+        <Label Text="Read for 5 minutes today!"/>
+
     </VerticalStackLayout>
 
 </ContentPage>
+
