@@ -3,17 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:MauiApp1.ViewModel"
              x:Class="MauiApp1.Views.DayPage"
-             Title="DayPage">
+             Title="Random Book">
 
     <ContentPage.BindingContext>
         <viewmodel:DayPageViewModel/>
     </ContentPage.BindingContext>
-    
-    
-    <VerticalStackLayout>
-        <Label 
-            Text="Thsi is the day page"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+
+    <VerticalStackLayout Padding="20" Spacing="20" BackgroundColor="#F5F5F5">
+        <Frame HasShadow="True" CornerRadius="10" BackgroundColor="White">
+            <VerticalStackLayout Padding="10" Spacing="10">
+                <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="200" Margin="0,0,0,10"/>
+                <Label Text="{Binding Book}" FontSize="28" FontAttributes="Bold" TextColor="#333" HorizontalOptions="Center"/>
+                <Label Text="{Binding Author}" FontSize="20" TextColor="#555" HorizontalOptions="Center"/>
+                <Label Text="{Binding Genre}" FontSize="18" TextColor="#666" HorizontalOptions="Center"/>
+                <BoxView HeightRequest="1" BackgroundColor="#CCC" Margin="0,10,0,10"/>
+                <Label Text="{Binding Description}" FontSize="16" TextColor="#444" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+        </Frame>
     </VerticalStackLayout>
 </ContentPage>
+

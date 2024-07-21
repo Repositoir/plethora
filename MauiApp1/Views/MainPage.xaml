@@ -26,7 +26,7 @@
                     CommandParameter="DayPage" />
                 </Frame.GestureRecognizers>
                 <Label 
-                Text="Book of the Day" 
+                Text="Random Book Choice" 
                 HorizontalOptions="Center" 
                 VerticalOptions="Center" 
                 HorizontalTextAlignment="Center" 
