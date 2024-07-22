@@ -1,30 +1,47 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodel="clr-namespace:MauiApp1.ViewModel"
              x:Class="MauiApp1.Views.AboutPage"
              Title="About the Devs">
-    <VerticalStackLayout Padding="10" Spacing="10">
 
-        <Image Aspect="AspectFill" Source="dotnet_bot.jpg"/>
-        
-        <Label 
-            Text="Created by"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"
-            FontAttributes="Bold"
-            FontSize="25"/>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20" BackgroundColor="#E8EAF6">
+            <Frame HasShadow="True" CornerRadius="20" BackgroundColor="White" Padding="20">
+                <VerticalStackLayout Spacing="20" HorizontalOptions="Center">
+                    <Image Aspect="AspectFit" Source="dotnet_bot.jpg" HeightRequest="200" WidthRequest="200" HorizontalOptions="Center"/>
 
-        <Label
-            Text=" - Aritra Biswas (Lead Developer)"
-            FontSize="24"/>
+                    <Label 
+                        Text="Created by"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center"
+                        FontAttributes="Bold"
+                        FontSize="28"
+                        TextColor="#3E2723"/>
 
-        <Label
-            Text=" - Arnav Waghdhare (ML Engineer)"
-            FontSize="24"/>
+                    <Frame BackgroundColor="#E0F7FA" CornerRadius="10" Padding="10" HasShadow="False">
+                        <Label
+                            Text="Aritra Biswas (Lead Developer)"
+                            FontSize="24"
+                            TextColor="#00796B"
+                            HorizontalOptions="Center"/>
+                    </Frame>
 
-        <Label
-            Text="using .NET MAUI Version 8"
-            FontSize="18"/>
-    </VerticalStackLayout>
+                    <Frame BackgroundColor="#FFEBEE" CornerRadius="10" Padding="10" HasShadow="False">
+                        <Label
+                            Text="Arnav Waghdhare (ML Engineer)"
+                            FontSize="24"
+                            TextColor="#00796B"
+                            HorizontalOptions="Center"/>
+                    </Frame>
+
+                    <Label
+                        Text="using .NET MAUI Version 8"
+                        FontSize="18"
+                        TextColor="#5D4037"
+                        HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
+

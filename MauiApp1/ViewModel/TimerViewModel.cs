@@ -15,9 +15,13 @@ namespace MauiApp1.ViewModel
         [ObservableProperty]
         private string remainingTime;
 
+        [ObservableProperty]
+        private string timerInput;
+
         public TimerViewModel()
         {
             RemainingTime = _initialTime.ToString(@"mm\:ss");
+            TimerInput = "5"; // Default value
         }
 
         [RelayCommand]
@@ -25,6 +29,15 @@ namespace MauiApp1.ViewModel
         {
             if (_cancellationTokenSource != null && !_cancellationTokenSource.IsCancellationRequested)
                 return;
+
+            if (!int.TryParse(TimerInput, out int minutes) || minutes <= 0)
+            {
+                RemainingTime = "Invalid Input";
+                return;
+            }
+
+            _initialTime = TimeSpan.FromMinutes(minutes);
+            RemainingTime = _initialTime.ToString(@"mm\:ss");
 
             _cancellationTokenSource = new CancellationTokenSource();
             await RunTimer(_initialTime, _cancellationTokenSource.Token);
@@ -44,6 +57,13 @@ namespace MauiApp1.ViewModel
         private void Reset()
         {
             Stop();
+            if (!int.TryParse(TimerInput, out int minutes) || minutes <= 0)
+            {
+                RemainingTime = "Invalid Input";
+                return;
+            }
+
+            _initialTime = TimeSpan.FromMinutes(minutes);
             RemainingTime = _initialTime.ToString(@"mm\:ss");
         }
 
@@ -63,10 +83,11 @@ namespace MauiApp1.ViewModel
             }
             catch (TaskCanceledException ex)
             {
-               // empty
+                // empty
             }
         }
     }
 }
+
 
 

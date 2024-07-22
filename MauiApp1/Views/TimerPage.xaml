@@ -10,6 +10,10 @@
     </ContentPage.BindingContext>
 
     <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Start" Spacing="20">
+
+        <Label Text="Set Timer (minutes):" FontSize="20" HorizontalOptions="Center"/>
+        <Entry Text="{Binding TimerInput, Mode=TwoWay}" Keyboard="Numeric" Placeholder="Enter minutes" FontSize="20" HorizontalOptions="Center"/>
+
         <Label 
             Text="{Binding RemainingTime}"
             FontSize="80"
@@ -34,11 +38,12 @@
                 FontSize="20"/>
         </HorizontalStackLayout>
 
-        <Label Text="Reading Challenge!" FontSize="30"/>
+        <Label Text="Reading Challenge!" FontSize="30" HorizontalOptions="Center"/>
 
-        <Label Text="Read for 5 minutes today!"/>
+        <Label Text="Read for atleast 5 minutes today!" HorizontalOptions="Center"/>
 
     </VerticalStackLayout>
 
 </ContentPage>
+
 
