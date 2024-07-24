@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:MauiApp1.ViewModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="MauiApp1.Views.TimerPage"
              Title="Reading Goal">
 
@@ -22,6 +23,7 @@
             x:Name="timerLabel"/>
 
         <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="20">
+
             <Button
                 Text="Start"
                 Command="{Binding StartCommand}"
@@ -37,7 +39,12 @@
                 Command="{Binding ResetCommand}"
                 FontSize="20"/>
         </HorizontalStackLayout>
-
+        
+        <toolkit:MediaElement x:Name="mediaElement" WidthRequest="300" HeightRequest="300"
+                      ShouldLoopPlayback="True"  ShouldShowPlaybackControls="True"
+                      Volume="25"
+                      Source="https://github.com/SergLam/Audio-Sample-files/raw/master/sample.mp3"/>
+        
         <Label Text="Reading Challenge!" FontSize="30" HorizontalOptions="Center"/>
 
         <Label Text="Read for atleast 5 minutes today!" HorizontalOptions="Center"/>
