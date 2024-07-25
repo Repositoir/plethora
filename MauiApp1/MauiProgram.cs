@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using MauiApp1.Views;
 using Microsoft.Extensions.Logging;
+using Plugin.Maui.Audio;
 
 namespace MauiApp1
 {
@@ -22,7 +23,7 @@ namespace MauiApp1
             
             builder.Services.AddSingleton<TimerPage>();
             builder.Services.AddSingleton<MainPage>();
-
+            builder.Services.AddSingleton(AudioManager.Current);
 
 #if DEBUG
     		builder.Logging.AddDebug();
