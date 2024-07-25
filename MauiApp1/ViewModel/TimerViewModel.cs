@@ -1,5 +1,7 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿//using Com.Google.Android.Exoplayer2;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Plugin.Maui.Audio;
 using System;
 using System.Diagnostics;
 using System.Threading;
@@ -11,12 +13,14 @@ namespace MauiApp1.ViewModel
     {
         private TimeSpan _initialTime = TimeSpan.FromMinutes(5);
         private CancellationTokenSource _cancellationTokenSource;
+        private IAudioPlayer _audioPlayer;
 
         [ObservableProperty]
         private string remainingTime;
 
         [ObservableProperty]
         private string timerInput;
+        private readonly IAudioManager audioManager;
 
         public TimerViewModel()
         {
@@ -40,6 +44,9 @@ namespace MauiApp1.ViewModel
             RemainingTime = _initialTime.ToString(@"mm\:ss");
 
             _cancellationTokenSource = new CancellationTokenSource();
+            
+            
+
             await RunTimer(_initialTime, _cancellationTokenSource.Token);
         }
 
@@ -50,6 +57,9 @@ namespace MauiApp1.ViewModel
             {
                 _cancellationTokenSource.Cancel();
             }
+
+            _audioPlayer?.Pause();
+
             _cancellationTokenSource = null;
         }
 
@@ -63,6 +73,11 @@ namespace MauiApp1.ViewModel
                 return;
             }
 
+            _audioPlayer?.Stop();
+            _audioPlayer?.Dispose();
+            _audioPlayer = null;
+
+
             _initialTime = TimeSpan.FromMinutes(minutes);
             RemainingTime = _initialTime.ToString(@"mm\:ss");
         }
@@ -71,6 +86,13 @@ namespace MauiApp1.ViewModel
         {
             try
             {
+                var audioSource = await FileSystem.OpenAppPackageFileAsync("sample.mp3");
+
+                //var player = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync ("sample.mp3"));
+
+                _audioPlayer = AudioManager.Current.CreatePlayer(audioSource);
+                _audioPlayer.Play();
+
                 while (countdownTime.TotalSeconds > 0)
                 {
                     if (token.IsCancellationRequested)
@@ -80,6 +102,7 @@ namespace MauiApp1.ViewModel
                     countdownTime = countdownTime.Subtract(TimeSpan.FromSeconds(1));
                     RemainingTime = countdownTime.ToString(@"mm\:ss");
                 }
+                
             }
             catch (TaskCanceledException ex)
             {
