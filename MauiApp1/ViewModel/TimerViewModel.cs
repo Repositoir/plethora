@@ -41,7 +41,7 @@ namespace MauiApp1.ViewModel
             }
 
             _initialTime = TimeSpan.FromMinutes(minutes);
-            RemainingTime = _initialTime.ToString(@"mm\:ss");
+            RemainingTime = _initialTime.ToString(@"mm\:ss"); 
 
             _cancellationTokenSource = new CancellationTokenSource();
             
@@ -58,9 +58,9 @@ namespace MauiApp1.ViewModel
                 _cancellationTokenSource.Cancel();
             }
 
-            _audioPlayer?.Pause();
-
             _cancellationTokenSource = null;
+
+            _audioPlayer?.Pause();
         }
 
         [RelayCommand]
@@ -99,6 +99,8 @@ namespace MauiApp1.ViewModel
                         break;
 
                     await Task.Delay(1000, token);
+
+                    // elapsedTime = elapsedTime.Add(TimeSpan.FromSeconds(1));
                     countdownTime = countdownTime.Subtract(TimeSpan.FromSeconds(1));
                     RemainingTime = countdownTime.ToString(@"mm\:ss");
                 }
