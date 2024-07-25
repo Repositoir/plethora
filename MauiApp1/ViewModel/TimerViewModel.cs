@@ -12,6 +12,7 @@ namespace MauiApp1.ViewModel
     public partial class TimerViewModel : BaseViewModel
     {
         private TimeSpan _initialTime = TimeSpan.FromMinutes(5);
+        private TimeSpan _elapseTime = TimeSpan.FromSeconds(0);
         private CancellationTokenSource _cancellationTokenSource;
         private IAudioPlayer _audioPlayer;
 
@@ -44,9 +45,8 @@ namespace MauiApp1.ViewModel
             RemainingTime = _initialTime.ToString(@"mm\:ss");
 
             _cancellationTokenSource = new CancellationTokenSource();
-            
-            
 
+            _initialTime = _initialTime - _elapseTime;
             await RunTimer(_initialTime, _cancellationTokenSource.Token);
         }
 
@@ -73,6 +73,7 @@ namespace MauiApp1.ViewModel
                 return;
             }
 
+
             _audioPlayer?.Stop();
             _audioPlayer?.Dispose();
             _audioPlayer = null;
@@ -80,6 +81,7 @@ namespace MauiApp1.ViewModel
 
             _initialTime = TimeSpan.FromMinutes(minutes);
             RemainingTime = _initialTime.ToString(@"mm\:ss");
+            _elapseTime = TimeSpan.FromSeconds(0);
         }
 
         private async Task RunTimer(TimeSpan countdownTime, CancellationToken token)
@@ -99,6 +101,8 @@ namespace MauiApp1.ViewModel
                         break;
 
                     await Task.Delay(1000, token);
+                    
+                    _elapseTime = _elapseTime.Add(TimeSpan.FromSeconds(1));
                     countdownTime = countdownTime.Subtract(TimeSpan.FromSeconds(1));
                     RemainingTime = countdownTime.ToString(@"mm\:ss");
                 }
