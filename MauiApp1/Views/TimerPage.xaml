@@ -26,19 +26,16 @@
             <Button
                 Text="Start"
                 Command="{Binding StartCommand}"
-                Clicked="OnCounterClicked"
                 BackgroundColor="Green"
                 FontSize="20"/>
             <Button
                 Text="Stop"
                 Command="{Binding StopCommand}"
-                Clicked="OnCounterClicked"
                 BackgroundColor="Red"
                 FontSize="20"/>
             <Button
                 Text="Reset"
                 Command="{Binding ResetCommand}"
-                Clicked="OnCounterClicked"
                 FontSize="20"/>
         </HorizontalStackLayout>
 
