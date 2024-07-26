@@ -31,4 +31,4 @@ C# and XAML code for the app.
 
 ## Remarks
 
-This is now a published project for the Code4theFuture Spring hackathon on [DevPost](devpost.com). A [working demonstration video](https://www.youtube.com/watch?v=G67ksZ00ZQo) can also be viewed.
+This is now a published project for the Code4theFuture Spring hackathon on [DevPost](https://devpost.com/) . A [working demonstration video](https://www.youtube.com/watch?v=G67ksZ00ZQo) can also be viewed.
