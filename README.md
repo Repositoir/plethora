@@ -3,6 +3,8 @@
 A cross-platform app to change habits and preferences in Reading
 while being user-friendly and responsive.
 
+This app is now available on the [Google Play Store](https://play.google.com/store/apps/details?id=com.developers.plethora) (Stable Release v1.0)
+
 ## Instructions for Deployment
 
 This application was created using the .NET MAUI framework
