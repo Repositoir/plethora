@@ -10,7 +10,7 @@ This app is now available on the [Google Play Store](https://play.google.com/sto
 This application was created using the .NET MAUI framework
 from Microsoft.
 
-To successfully run this app you would need
+To successfully run this app in a development environment you would need
 
 - .NET MAUI installed on a Windows, Mac or Linux machine.
 - NuGet package of `Maui-Community-Toolkit-Mvvm`.
@@ -20,8 +20,7 @@ users both iOS and Android.
 
 ## Precautions
 
-- This is not yet a production-level deployed app on the AppStore or PlayStore.
-Instead, to properly visualize the app working, an IDE such as Microsoft Visual Studio or
+- To properly visualize the app working in a development environment, an IDE such as Microsoft Visual Studio or
 JetBrains Rider is required.
 
 > Note to JetBrains Rider Users: To run this application you would require
